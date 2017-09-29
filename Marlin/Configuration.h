@@ -484,7 +484,7 @@
 
   #if ENABLED(DELTA_AUTO_CALIBRATION)
     // set the default number of probe points : n*n (1 -> 7)
-    #define DELTA_CALIBRATION_DEFAULT_POINTS 4
+    #define DELTA_CALIBRATION_DEFAULT_POINTS 7
   #endif
 
   #if ENABLED(DELTA_AUTO_CALIBRATION) || ENABLED(DELTA_CALIBRATION_MENU)
@@ -549,13 +549,13 @@
 #define USE_ZMAX_PLUG
 
 // coarse Endstop Settings
-#define ENDSTOPPULLUPS // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
+//#define ENDSTOPPULLUPS // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
 
 #if DISABLED(ENDSTOPPULLUPS)
   // fine endstop settings: Individual pullups. will be ignored if ENDSTOPPULLUPS is defined
-  //#define ENDSTOPPULLUP_XMAX
-  //#define ENDSTOPPULLUP_YMAX
-  //#define ENDSTOPPULLUP_ZMAX
+  #define ENDSTOPPULLUP_XMAX
+  #define ENDSTOPPULLUP_YMAX
+  #define ENDSTOPPULLUP_ZMAX
   //#define ENDSTOPPULLUP_XMIN
   //#define ENDSTOPPULLUP_YMIN
   //#define ENDSTOPPULLUP_ZMIN
@@ -569,7 +569,7 @@
 #define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+#define Z_MIN_PROBE_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
@@ -692,13 +692,13 @@
  * Use G29 repeatedly, adjusting the Z height at each point with movement commands
  * or (with LCD_BED_LEVELING) the LCD controller.
  */
-#define PROBE_MANUALLY
+//#define PROBE_MANUALLY
 
 /**
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-//#define FIX_MOUNTED_PROBE
+#define FIX_MOUNTED_PROBE
 
 /**
  * Z Servo Probe, such as an endstop switch on a rotating arm.
@@ -756,8 +756,8 @@
  *    (0,0)
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER 0     // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -10   // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -3.5  // Z offset: -below +above  [the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER 0   // Y offset: -front +behind [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER 0  // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 4000
@@ -769,7 +769,7 @@
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
 
 // Use double touch for probing
-//#define PROBE_DOUBLE_TOUCH
+#define PROBE_DOUBLE_TOUCH
 
 /**
  * Allen key retractable z-probe as seen on many Kossel delta printers - http://reprap.org/wiki/Kossel#Automatic_bed_leveling_probe
@@ -974,7 +974,7 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
@@ -1154,9 +1154,9 @@
 // When enabled Marlin will send a busy status message to the host
 // every couple of seconds when it can't accept commands.
 //
-#define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
-#define DEFAULT_KEEPALIVE_INTERVAL 2  // Number of seconds between "busy" messages. Set with M113.
-#define BUSY_WHILE_HEATING            // Some hosts require "busy" messages even during heating
+//#define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
+//#define DEFAULT_KEEPALIVE_INTERVAL 2  // Number of seconds between "busy" messages. Set with M113.
+//#define BUSY_WHILE_HEATING            // Some hosts require "busy" messages even during heating
 
 //
 // M100 Free Memory Watcher
